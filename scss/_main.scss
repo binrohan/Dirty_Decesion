@@ -1,0 +1,85 @@
+main h1{
+    font-size: 1.5rem;
+    text-align: center;
+    padding-top: 20px;
+}
+.letter-n{
+    font-family: $head-font;
+    color: $accent-color;
+}
+.male{
+    color: $female-accent;
+    background: $primary-color;
+}
+.female{
+    color: $primary-color;
+    background: $female-accent;
+}
+
+#male-btn{
+    border: 2px solid $female-accent;
+    color: $male-accent;
+    transition: box-shadow 1000ms;
+
+    &:hover{
+        box-shadow: 0 0 15px $female-accent;
+        cursor: pointer;
+    }
+}
+
+#female-btn{
+    border: 2px solid $male-accent;
+    color: $female-accent;
+    transition: box-shadow 1000ms;
+
+    &:hover{
+        box-shadow: 0 0 15px $male-accent;
+        cursor: pointer;
+    }
+}
+
+.machine{
+    &__slots{
+        display: flex;
+        flex-wrap: wrap;
+
+        &__slot{
+            margin: 20px 25px;
+            min-width: 250px;
+            min-height: 120px;
+            border: 1px solid $accent-color;
+
+            font-weight: 700;
+            font-size: 2rem;
+            text-transform: uppercase;
+            text-align: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &__text{
+        padding-left: 20px;
+        font-size: 1.2rem;
+    }
+
+    &__btns{
+        display: flex;
+        justify-content: center;
+
+        &__btn{
+            padding: .5em;
+            margin: 25px;
+            width: 100px;
+            height: 100px;
+            border-radius: 5px;
+            font-size: 5rem;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

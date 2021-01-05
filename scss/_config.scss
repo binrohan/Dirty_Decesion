@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;700&family=Satisfy&display=swap');
+
+$head-font: 'Satisfy', cursive;
+$plain-font: 'Lato', sans-serif;
+
+$primary-color: #191d2b;
+$accent-color: #eb83f8;
+$font-color: whitesmoke;
+
+$female-accent: #be4bdb;
+$male-accent: blue;
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin media-md {
+    @media screen and (min-width: 768px){
+        @content;
+    }
+}
+@mixin media-lg {
+    @media screen and (min-width: 1024px){
+        @content;
+    }
+}
+@mixin media-xl {
+    @media screen and (min-width: 1600px){
+        @content;
+    }
+}

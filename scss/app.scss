@@ -1,0 +1,16 @@
+// background #191d2b
+// Accent #eb83f8
+// #be4bdb
+
+
+@import './config';
+@import './title';
+@import './main';
+
+body{
+    font-family: $plain-font;
+    background: $primary-color;
+    color: $font-color;
+    max-height: 100vh;
+    line-height: 1;
+}
