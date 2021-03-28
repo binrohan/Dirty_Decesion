@@ -22,11 +22,11 @@
 @keyframes neon {
     0%,
     100% {
-      text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+      text-shadow: 0 0 6px #FA1C16, 0 0 18px #FA1C16, 0 0 60px #FA1C16, 0 0 60px #FA1C16, 0 0 4px #FED128, 2px 2px 1px #806914;
       color: $accent-color;
     }
     50% {
-      text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+      text-shadow: 0 0 3px #800E0B, 0 0 9px #800E0B, 0 0 30px #800E0B, 0 0 30px #800E0B, 0 0 2px #800E0B, 2px 2px 1px #40340A;
       color: $female-accent;
     }
   }
