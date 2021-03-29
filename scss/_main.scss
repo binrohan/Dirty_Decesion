@@ -1,403 +1,88 @@
-@mixin btn-border-drawing($color: #ccc, $hover: black, $width: 2px, $vertical: top, $horizontal: left, $duration: 0.25s) {
-    box-shadow: inset 0 0 0 $width $color;
-    color: $color;
-    transition: color $duration $duration/3;
-    position: relative;
-    
-    &::before,
-    &::after {
-      border: 0 solid transparent;
-      box-sizing: border-box;
-      content: '';
-      pointer-events: none;
-      position: absolute;
-      width: 0; height: 0;
-      
-      #{$vertical}: 0; 
-      #{$horizontal}: 0;
-    }
-  
-    &::before {
-      $h-side: if($horizontal == 'left', 'right', 'left');
-      
-      border-#{$vertical}-width: $width;
-      border-#{$h-side}-width: $width;
-    }
-    
-    &::after {
-      $v-side: if($vertical == 'top', 'bottom', 'top');
-      
-      border-#{$v-side}-width: $width;
-      border-#{$horizontal}-width: $width;
-    }
-    
-    &:hover {
-      color: $hover;
-      
-      &::before,
-      &::after {
-        border-color: $hover;
-        transition: border-color 0s, width $duration, height $duration;
-        width: 100%;
-        height: 100%;
-      }
-      
-      &::before { transition-delay: 0s, 0s, $duration; }
-      
-      &::after { transition-delay: 0s, $duration, 0s; }
-    }
+main h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  // padding-top: 20px;
+  margin: 10px 0;
+  font-weight: 100;
+  max-height: 100vh;
+}
+.letter-n {
+  font-family: $head-font;
+  color: $accent-color;
+}
+.male {
+  color: $female-accent;
+  background: $primary-color;
+}
+.female {
+  color: $primary-color;
+  background: $female-accent;
+}
+
+#male-btn {
+  border: 2px solid $female-accent;
+  color: $male-accent;
+  transition: box-shadow 1000ms;
+
+  &:hover {
+    box-shadow: 0 0 15px $female-accent;
+    cursor: pointer;
   }
+}
 
-$pale-white: #f6f6f6;
-@mixin cover(){
-     -webkit-background-size:cover;
-     -moz-background-size:cover;
-     -o-background-size:cover;
-     background-size:cover;
-     }
-  @mixin round($radius){
-     -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-     -o-border-radius: $radius;
-     border-radius: $radius;
+#female-btn {
+  border: 2px solid $male-accent;
+  color: $female-accent;
+  transition: box-shadow 1000ms;
+
+  &:hover {
+    box-shadow: 0 0 15px $male-accent;
+    cursor: pointer;
   }
-  @mixin big(){
-     font-family: 'Montserrat', sans-serif;
-  }
-  @mixin anime($time, $cubic){
-     -webkit-transition: all $time $cubic;
-     -moz-transition: all $time $cubic;
-     -o-transition: all $time $cubic;
-     transition: all $time $cubic;
-  }
-  @mixin center(){
-     top: 50%;
-     left: 50%;
-     -webkit-transform: translate(-50%, -50%);
-     -moz-transform: translate(-50%, -50%);
-     -o-transform: translate(-50%, -50%);
-     transform: translate(-50%, -50%);
-  }
-  
-
-main h1{
-    font-size: 1.5rem;
-    text-align: center;
-    // padding-top: 20px;
-    margin: 10px 0;
-    font-weight: 100;
-    max-height: 100vh;
-}
-.letter-n{
-    font-family: $head-font;
-    color: $accent-color;
-}
-.male{
-    color: $female-accent;
-    background: $primary-color;
-}
-.female{
-    color: $primary-color;
-    background: $female-accent;
 }
 
-#male-btn{
-    border: 2px solid $female-accent;
-    color: $male-accent;
-    transition: box-shadow 1000ms;
+.machine {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-    &:hover{
-        box-shadow: 0 0 15px $female-accent;
-        cursor: pointer;
-    }
-}
-
-#female-btn{
-    border: 2px solid $male-accent;
-    color: $female-accent;
-    transition: box-shadow 1000ms;
-
-    &:hover{
-        box-shadow: 0 0 15px $male-accent;
-        cursor: pointer;
-    }
-}
-
-.machine{
-
+  &__slots {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 
-    &__slots{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
+    margin: 10px 0;
 
-        margin: 10px 0;
+    &__slot {
+      margin: 20px 25px;
+      min-width: 250px;
+      min-height: 120px;
+      border: 1px solid $accent-color;
 
-        &__slot{
-            margin: 20px 25px;
-            min-width: 250px;
-            min-height: 120px;
-            border: 1px solid $accent-color;
+      font-weight: 700;
+      font-size: 2rem;
+      text-transform: uppercase;
+      text-align: center;
 
-            font-weight: 700;
-            font-size: 2rem;
-            text-transform: uppercase;
-            text-align: center;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+  }
 
-    &__text{
-    
-        font-size: 1.2rem;
-        text-align: center;
-        margin: 10px 0;
-        height: 100px;
-        max-width: 290px;
-    }
+  &__text {
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 10px 0;
+    height: 100px;
+    max-width: 290px;
+  }
 
-    &__btn{
-        
-
-        // .btn{
-          
-        //   font-weight: bold;
-
-          
-        // //   background: none;
-        // //   border: none;
-        // //   cursor: pointer;
-        // //   line-height: 1.5;
-        // //   font: 700 1.2rem 'Roboto Slab', sans-serif;
-        // //   padding: 1em 2em;
-        // //   letter-spacing: 0.05rem;
-          
-        // //   &:focus { outline: 2px dotted #55d7dc; }
-
-        // }
-
-        .draw-border {
-            @include btn-border-drawing($male-accent, $female-accent, 4px, bottom, right);
-          }
-    }
+  &__btn {
+      .btn-hover-border{
+         @include hover-button();
+      }
+  }
 }
-
-//=== Drawing effect
-
-
-.one{
-    top:0px;
-    left:0px;
-      background: url(https://images.unsplash.com/photo-1461887046916-c7426e65460d?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=2a03e179401fab10a3b1941193440e12) center center no-repeat;
-    @include cover();
-    #button{
-       width: 122px;
-       padding: 6px;
-       height: 50px;
-       color: $pale-white;
-       @include big();
-       font-size: 2.5em;
-       position:absolute;
-       @include center();
-       border: #fff 2px solid;
-       overflow:hidden;
-       @include anime(0.6s, (cubic-bezier(.55,0,.1,1)));
-       cursor: pointer;
-       box-shadow: 0px 0px 0px #fff;
-       &:hover{
-          text-shadow: 0px 8px 6px rgba(0,0,0,0.9);
-          box-shadow: 8px 8px 0px #fff, -8px -8px 0px #fff;
-       }
-       &:hover .one{
-           opacity:1;
-         transform: translate3d(0px ,0px ,0px);
-       }
-       &:hover .two{
-          
-          transform: translate3d(0px ,0px ,0px);
-       }
-       &:hover .three{
-          transform: translate3d(0px ,0px ,0px);
-       }
-       &:hover .four{
-          transform: translate3d(0px ,0px ,0px);
-       }
-       .ring{
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          background: transparent;
-          top:0;
-          left:0;
-          transform: translate3d(0px ,90px ,0px);
-       }
-       .one{
-          background-color: #FE6B26;
-          @include anime(0.3s, (cubic-bezier(.55,0,.1,1)));
-          z-index: -3;
-          z-index: -4;
-       }
-       .two{
-          background-color:#FE8EFE;
-          @include anime(0.5s, (cubic-bezier(.55,0,.1,1)));
-          z-index: -3;
-       }
-       .three{
-          background-color: #841EE4;
-          z-index: -2;
-          @include anime(0.7s, (cubic-bezier(.55,0,.1,1)));
-          z-index: -3;
-       }
-       .four{
-         background-color:#3E12FD;
-          z-index: -1;
-          @include anime(0.9s, (cubic-bezier(.55,0,.1,1)));
-          z-index: -3;
-       }
-    }
-   }
-.two{
-   top: 400px;
-   left:0;
-   background: url(https://images.unsplash.com/photo-1470093851219-69951fcbb533?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=d40a9b070414fc8088992b91563b17ef) center center no-repeat;
-   @include cover();
-    #button{
-       width: 122px;
-       padding: 16px;
-       height: 50px;
-       color: $pale-white;
-       @include big();
-       font-size: 2.5em;
-       position:absolute;
-       @include center();
-       background: transparent;
-       overflow:hidden;
-       @include anime(0.6s, (cubic-bezier(.55,0,.1,1)));
-       cursor: pointer;
-       box-shadow: 0px 0px 0px #fff;
-      @include round(50px);
-       border: #594A83 solid 8px;
-       z-index: 0;
-       &::after{
-          position: absolute;
-          content:"";
-          top: 0px;
-          left: 0px;
-          width: 0%;
-          height: 100%;
-        
-          background-image: -webkit-gradient(linear, 0 0, 100% 0, from(#fff), to(transparent));
-            background-image: -webkit-linear-gradient(left, #fff, transparent);
-            background-image: -moz-linear-gradient(left, #fff, transparent);
-            background-image: -o-linear-gradient(left, #fff, transparent);
-          z-index: -1;
-          @include anime(2s, ease);
-       }
-       &:hover::after{
-    width: 800%;
-         
-       }
-       &:hover{
-          color: #505050;
-          box-shadow: 0px 20px 8px rgba(0,0,0,.6);
-       }
-      
-   }
-   }
-.three{
-    z-index: -1;
-//    top: 800px;
-//    left:0;
-   //background: url(https://images.unsplash.com/photo-1431440869543-efaf3388c585?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=a9ed512366462aff761f7c04ac383675) center center no-repeat;
-   @include cover();
-    #button{
-       width: 122px;
-       padding: 16px;
-       height: 50px;
-       color: $pale-white;
-       @include big();
-       font-size: 2.5em;
-    //    position:absolute;
-       @include center();
-       background: transparent;
-       @include anime(0.6s, (cubic-bezier(.55,0,.1,1)));
-       cursor: pointer;
-       box-shadow: 0px 0px 0px #fff;
-     
-       
-       z-index: 0;
-       .ring{
-          position: absolute;
-          width: 20px;
-          height: 20px;
-          background: #fff;
-          @include round(50px);
-          top: 40%;
-          left: 45%;
-          @include anime(1s,(cubic-bezier(.55,0,.1,1)));
-          transform:perspective(500px)  translate3d(0px, 0px,0px);
-          opacity: 0.0;
-       }
-       
-       &:hover .one{
-          transform:perspective(500px)  translate3d(-90px, -50px,150px);
-          opacity: 1;
-       }
-        &:hover .two{
-          transform:perspective(800px)  translate3d(-130px, 50px,180px);
-          opacity: 0.6;
-       }
-        &:hover .three{
-          transform:perspective(800px)  translate3d(130px, 50px,30px);
-          opacity: 0.2;
-       }
-       &:hover .four{
-          transform:perspective(800px)  translate3d(130px, -120px,80px);
-          opacity: 0.9;
-       }
-       &::after{
-         position: absolute;
-          top: -35px;
-          left:0;
-         width: 150px;
-         height: 150px;
-          content: "";
-          background: #fff;
-          z-index: -1;
-          transform:perspective(800px) scale(0.0) rotate(0deg);
-          @include anime(2s,(cubic-bezier(.55,0,.1,1)));
-       }
-       &:before{
-           position: absolute;
-          top: -40px;
-          left:-6px;
-         width: 160px;
-         height: 160px;
-          border: solid 1px #fff;
-          content: "";
-          background:transparent;
-          z-index: -1;
-          transform:perspective(800px) scale(0.4) rotate(0deg);
-          @include anime(2s, (cubic-bezier(.55,0,.1,1)));
-       }
-       &:hover::after{
-         transform:perspective(800px) scale(1.0) rotate(600deg);
-         
-       }
-       &:hover::before{
-           transform:perspective(800px) scale(1.0) rotate(-100deg);
-       }
-       &:hover{
-          color: #505050;
-       }
-      
-   }
-   }

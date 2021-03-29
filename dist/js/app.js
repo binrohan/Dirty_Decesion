@@ -1,26 +1,51 @@
 // DOM Selector
-const maleText = document.getElementById('male-text');
-const femaleText = document.getElementById('female-text');
-const maleBtn = document.getElementById('male-btn');
-const femaleBtn = document.getElementById('female-btn');
+const maleText = document.getElementById("male-text");
+const femaleText = document.getElementById("female-text");
+const playBtn = document.getElementById("btn-play");
+
+// Variables
+let mOrgans = ['A', 'B', 'C', 'D', 'F'];
+let fOrgans = ['Z', 'X', 'Y', 'W'];
 
 // Event Handlers
-maleBtn.addEventListener('click', () => {
-    male.start();
+playBtn.addEventListener("click", () => {
+    engage(2000, 4000, mOrgans, fOrgans);
 });
-
-femaleBtn.addEventListener('click', () => {
-
-})
 
 // Functions
+function engage(mTime, fTime, mOpts, fOpts){
+    const mIndex = Math.floor(Math.random() * [...mOpts].length);
+    const fIndex = Math.floor(Math.random() * [...fOpts].length);
 
+    baffleEngine(mTime, fTime, mOpts[mIndex], fOpts[fIndex]);
+}
+
+function baffleEngine(mTime, fTime, mText, fText) {
+    male.start();
+    female.start();
+    
+    setTimeout(() => {
+        male.stop();
+        male.text(m => mText);
+        male.reveal(1000);
+    }, mTime);
+
+  setTimeout(() => {
+    female.stop();
+    female.text(f => fText);
+    female.reveal(1000);
+  }, fTime);
+}
 
 // Baffle Config
-let male = baffle( maleText, {
-    characters: 'abcdefghijklmnopqrstuvwxyz',
-    speed: 120
+let male = baffle(maleText, {
+  characters: "abcdefghijklmnopqrstuvwxyz",
+  speed: 120,
 });
 
-// b.start();
-// b.reveal(3000);
+let female = baffle(femaleText, {
+  characters: "abcdefghijklmnopqrstuvwxyz",
+  speed: 120,
+});
+
+
